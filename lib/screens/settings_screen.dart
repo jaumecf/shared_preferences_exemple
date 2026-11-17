@@ -40,23 +40,19 @@ class _SettingsScreenState extends State<SettingsScreen> {
                       setState(() {});
                     }),
                 const Divider(),
-                RadioListTile<int>(
-                    value: 1,
-                    groupValue: _genere,
-                    title: const Text('Masculino'),
-                    onChanged: (value) {
-                      _genere = value ?? 1;
-                      setState(() {});
-                    }),
-                const Divider(),
-                RadioListTile<int>(
-                    value: 2,
-                    groupValue: _genere,
-                    title: const Text('Femenino'),
-                    onChanged: (value) {
-                      _genere = value ?? 1;
-                      setState(() {});
-                    }),
+                RadioGroup(
+                  groupValue: _genere,
+                  onChanged: (value) {
+                    _genere = value ?? 1;
+                    setState(() {});
+                  },
+                  child: const Column(
+                    children: [
+                      RadioListTile(value: 1, title: Text('Masculí')),
+                      RadioListTile(value: 2, title: Text('Femení')),
+                    ],
+                  ),
+                ),
                 Divider(),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
